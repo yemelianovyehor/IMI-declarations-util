@@ -68,7 +68,7 @@ time.sleep(2)#skyrim
 number_of_declarations = TO_DOWNLOAD #int(driver.find_elements(By.XPATH,'//strong')[0].text.split(' ')[0])
 print(f"declarations to download: {number_of_declarations}")
 
-for i in range(PROGRESS+1,number_of_declarations+1): #10
+for i in range(PROGRESS+1,number_of_declarations+1):
 	wait.until(EC.presence_of_element_located((By.XPATH, f'//table/tbody/tr[{i}]')))
 	time.sleep(1) # lA koSTIL, kak skyrim
 	wait.until(EC.element_to_be_clickable((By.XPATH, f'//table/tbody/tr[{i}]')))
@@ -83,7 +83,7 @@ for i in range(PROGRESS+1,number_of_declarations+1): #10
 		file = row.find_element(By.XPATH, 'td[1]').text+'.pdf'
 		country = row.find_element(By.XPATH, 'td[2]').text
 		driv = '_'.join(row.find_element(By.XPATH, 'td[3]').text.split(' '))
-		driver.execute_script("arguments[0].scrollIntoView(); window.scroll(0,370);", row)
+		
 		#time.sleep(1)
 		actions.click(row).perform()
 
